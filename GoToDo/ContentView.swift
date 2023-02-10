@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import CodeEditor
 
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
@@ -15,27 +16,49 @@ struct ContentView: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
+    @State private var tasks: [SimpleTask] = sampleTasks
+    
+    @State var filename = "Filename"
+    @State var showFileChooser = false
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(items) { item in
+                ForEach(tasks, id: \.self) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                        //TODO: create code editor
+                        TodoEditorView(title: item.body,code: item.context.contextDescription.string)
+//                        CodeEditor(
+//                            source: item.context.contextDescription.string,
+//                            language: .swift
+//                        )
                     } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+                        Text(item.body).font(.headline)
+                            .lineLimit(3)
                     }
                 }
                 .onDelete(perform: deleteItems)
             }
             .toolbar {
                 ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                    Button(action: openProject) {
+                        Label("Open", systemImage: "folder")
                     }
                 }
             }
             Text("Select an item")
+        }
+    }
+    
+    private func openProject() {
+        let panel = NSOpenPanel()
+        panel.allowsMultipleSelection = false
+        panel.canChooseDirectories = true
+        if panel.runModal() == .OK {
+//            self.filename = panel.url?.lastPathComponent ?? "<none>"
+            if let url = panel.url {
+                self.tasks = TasksFromCode(url: url).items().map { $0 as! SimpleTask }
+            }
         }
     }
 
@@ -78,8 +101,17 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
+private var sampleTasks: [SimpleTask] = [
+    .init(body: "Highlight", context: SurroundingCodeContext(url: URL(fileURLWithPath: ""), code: """
+                                                             static func highlighted(code: String) -> NSAttributedString{
+                                                             //TODO: highlight
+                                                     //        let highlightr = Highlightr()!
+                                                     //        highlightr.setTheme(to: "ocean")"))
+                                             """))
+]
+
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext )
     }
 }

@@ -7,15 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70F365C927FE48B700D0D5A8 /* CodeEditor in Frameworks */ = {isa = PBXBuildFile; productRef = 70F365C827FE48B700D0D5A8 /* CodeEditor */; };
+		70F365CB27FE532F00D0D5A8 /* TodoEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F365CA27FE532F00D0D5A8 /* TodoEditorView.swift */; };
 		70F544EB27FE2D0500477DBB /* GoToDoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F544EA27FE2D0500477DBB /* GoToDoApp.swift */; };
 		70F544ED27FE2D0500477DBB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F544EC27FE2D0500477DBB /* ContentView.swift */; };
 		70F544EF27FE2D0600477DBB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70F544EE27FE2D0600477DBB /* Assets.xcassets */; };
 		70F544F227FE2D0700477DBB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70F544F127FE2D0700477DBB /* Preview Assets.xcassets */; };
 		70F544F427FE2D0700477DBB /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F544F327FE2D0700477DBB /* Persistence.swift */; };
 		70F544F727FE2D0700477DBB /* GoToDo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 70F544F527FE2D0700477DBB /* GoToDo.xcdatamodeld */; };
+		70F544FF27FE308200477DBB /* TasksFromCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F544FE27FE308200477DBB /* TasksFromCode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		70F365CA27FE532F00D0D5A8 /* TodoEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoEditorView.swift; sourceTree = "<group>"; };
 		70F544E727FE2D0500477DBB /* GoToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70F544EA27FE2D0500477DBB /* GoToDoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoToDoApp.swift; sourceTree = "<group>"; };
 		70F544EC27FE2D0500477DBB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -24,6 +28,7 @@
 		70F544F327FE2D0700477DBB /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		70F544F627FE2D0700477DBB /* GoToDo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GoToDo.xcdatamodel; sourceTree = "<group>"; };
 		70F544F827FE2D0700477DBB /* GoToDo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GoToDo.entitlements; sourceTree = "<group>"; };
+		70F544FE27FE308200477DBB /* TasksFromCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TasksFromCode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70F365C927FE48B700D0D5A8 /* CodeEditor in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +62,8 @@
 		70F544E927FE2D0500477DBB /* GoToDo */ = {
 			isa = PBXGroup;
 			children = (
+				70F365CA27FE532F00D0D5A8 /* TodoEditorView.swift */,
+				70F544FE27FE308200477DBB /* TasksFromCode.swift */,
 				70F544EA27FE2D0500477DBB /* GoToDoApp.swift */,
 				70F544EC27FE2D0500477DBB /* ContentView.swift */,
 				70F544EE27FE2D0600477DBB /* Assets.xcassets */,
@@ -91,6 +99,9 @@
 			dependencies = (
 			);
 			name = GoToDo;
+			packageProductDependencies = (
+				70F365C827FE48B700D0D5A8 /* CodeEditor */,
+			);
 			productName = GoToDo;
 			productReference = 70F544E727FE2D0500477DBB /* GoToDo.app */;
 			productType = "com.apple.product-type.application";
@@ -119,6 +130,9 @@
 				Base,
 			);
 			mainGroup = 70F544DE27FE2D0500477DBB;
+			packageReferences = (
+				70F365C727FE48B700D0D5A8 /* XCRemoteSwiftPackageReference "CodeEditor" */,
+			);
 			productRefGroup = 70F544E827FE2D0500477DBB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -145,8 +159,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70F544FF27FE308200477DBB /* TasksFromCode.swift in Sources */,
 				70F544F427FE2D0700477DBB /* Persistence.swift in Sources */,
 				70F544ED27FE2D0500477DBB /* ContentView.swift in Sources */,
+				70F365CB27FE532F00D0D5A8 /* TodoEditorView.swift in Sources */,
 				70F544EB27FE2D0500477DBB /* GoToDoApp.swift in Sources */,
 				70F544F727FE2D0700477DBB /* GoToDo.xcdatamodeld in Sources */,
 			);
@@ -344,6 +360,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		70F365C727FE48B700D0D5A8 /* XCRemoteSwiftPackageReference "CodeEditor" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ZeeZide/CodeEditor.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		70F365C827FE48B700D0D5A8 /* CodeEditor */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 70F365C727FE48B700D0D5A8 /* XCRemoteSwiftPackageReference "CodeEditor" */;
+			productName = CodeEditor;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		70F544F527FE2D0700477DBB /* GoToDo.xcdatamodeld */ = {
